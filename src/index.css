@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Outfit", sans-serif;
+}
+
+::selection {
+  background-color: var(--color-indigo-100);
+  color: var(--color-indigo-900);
+}
