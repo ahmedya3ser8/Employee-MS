@@ -8,3 +8,13 @@ body {
   background-color: var(--color-indigo-100);
   color: var(--color-indigo-900);
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-slate-300);
+  border-radius: 6px;
+}

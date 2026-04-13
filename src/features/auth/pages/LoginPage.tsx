@@ -1,5 +1,6 @@
-import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
+import { FaArrowRight } from "react-icons/fa";
 
 const LoginPage = () => {
   return (
@@ -21,7 +22,7 @@ const LoginPage = () => {
         </Link>
       </div>
       <p className="text-sm text-[#90A1B9]"> 
-        &copy; 2026 Ahmed Yasser. All rights reserved. 
+        &copy; {new Date().getFullYear()} Ahmed Yasser. All rights reserved. 
       </p>
     </div>
   )

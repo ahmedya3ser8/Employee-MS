@@ -30,7 +30,7 @@ const AuthAdminPage = () => {
             </button>
           </div>
         </div>
-        <button className="bg-linear-to-r from-[#4F39F6] to-[#615FFF] p-3 rounded-md text-white cursor-pointer">
+        <button type="submit" className="bg-linear-to-r from-[#4F39F6] to-[#615FFF] p-3 rounded-md text-white cursor-pointer">
           Sign in
         </button>
       </form>
