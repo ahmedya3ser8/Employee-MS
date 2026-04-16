@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import { FaChevronRight } from "react-icons/fa";
 import { FiDollarSign, FiFileText, FiUser } from "react-icons/fi";
@@ -6,6 +6,8 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { LuCalendar, LuUsers } from "react-icons/lu";
 import { MdLogout } from "react-icons/md";
 import { RxDashboard } from "react-icons/rx";
+import { useAuthStore } from "@/features/auth/store/authStore";
+import toast from "react-hot-toast";
 
 const adminRoutes = [
   { id: 1, path: '/admin/dashboard', text: 'Dashboard', Icon: RxDashboard },
@@ -24,8 +26,19 @@ const employeeRoutes = [
 ];
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const { logout } = useAuthStore();
+
   const location = useLocation(); 
   const activeRoutes = location.pathname.startsWith('/admin') ? adminRoutes : employeeRoutes;
+
+  const handleLogout = async () => {
+    await logout();
+
+    toast.success('User logged out successfully');
+
+    navigate("/auth/login");
+  }
   return (
     <div className="sidebar w-65 bg-linear-to-b from-[#0F172B] via-[#0F172B] to-[#020618] border-r border-white/4 text-white flex flex-col">
 
@@ -62,10 +75,10 @@ const Sidebar = () => {
         ))}
       </ul>
 
-      <div className="flex items-center gap-3 text-[#90A1B9] px-4 py-6 border-t border-white/6 transition-all duration-300 hover:text-rose-400 cursor-pointer">
+      <button onClick={handleLogout} className="flex items-center gap-3 text-[#90A1B9] px-4 py-6 border-t border-white/6 transition-all duration-300 hover:text-rose-400 cursor-pointer">
         <MdLogout size={17} />
         <span className="text-sm font-medium"> Log out </span>
-      </div>
+      </button>
 
     </div>
   )

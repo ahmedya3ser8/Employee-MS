@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Link } from "react-router-dom";
+
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const DepartmentsList = [
   { id: 1, value: 'all', name: 'All Departments' },
@@ -33,10 +34,10 @@ const AdminAddEmployeePage = () => {
       <form className="flex flex-col gap-8">
 
         <div className="card border border-slate-200 rounded-md p-6">
-          <h3 className="font-medium border-b border-slate-100 pb-4"> Personal Information </h3>
-          <div className="flex flex-col gap-6">
+          <h2 className="font-medium border-b border-slate-100 pb-6"> Personal Information </h2>
+          <div className="flex flex-col gap-6 pt-6">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
               <div className="space-y-2">
                 <label htmlFor="firstName" className="block text-sm font-medium text-[#314158]"> First Name </label>
@@ -50,7 +51,7 @@ const AdminAddEmployeePage = () => {
 
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
               <div className="space-y-2">
                 <label htmlFor="phoneNumber" className="block text-sm font-medium text-[#314158]"> Phone Number </label>
@@ -73,10 +74,10 @@ const AdminAddEmployeePage = () => {
         </div>
 
         <div className="card border border-slate-200 rounded-md p-6">
-          <h3 className="font-medium border-b border-slate-100 pb-4"> Employment Details </h3>
-          <div className="flex flex-col gap-6">
+          <h2 className="font-medium border-b border-slate-100 pb-6"> Employment Details </h2>
+          <div className="flex flex-col gap-6 pt-6">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
               <div className="space-y-2">
                 <label htmlFor="department" className="block text-sm font-medium text-[#314158]"> Department </label>
@@ -94,7 +95,7 @@ const AdminAddEmployeePage = () => {
 
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
               <div className="space-y-2">
                 <label htmlFor="basic-salary" className="block text-sm font-medium text-[#314158]"> Basic Salary </label>
@@ -108,7 +109,7 @@ const AdminAddEmployeePage = () => {
 
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
               <div className="space-y-2">
                 <label htmlFor="deductions" className="block text-sm font-medium text-[#314158]"> Deductions </label>
@@ -121,15 +122,15 @@ const AdminAddEmployeePage = () => {
         </div>
 
         <div className="card border border-slate-200 rounded-md p-6">
-          <h3 className="font-medium border-b border-slate-100 pb-4"> Account Setup </h3>
-          <div className="flex flex-col gap-6">
+          <h2 className="font-medium border-b border-slate-100 pb-6"> Account Setup </h2>
+          <div className="flex flex-col gap-6 pt-6">
 
             <div className="space-y-2">
               <label htmlFor="email" className="block text-sm font-medium text-[#314158]"> Work Email </label>
               <input type="email" id="email" className="w-full bg-[#F8FAFC80] border border-[#E2E8F0] rounded-md py-3 px-4" placeholder="john@gmail.com" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
               <div className="space-y-2">
                 <label htmlFor="password" className="block text-sm font-medium text-[#314158]"> Temporary Password </label>
@@ -159,7 +160,7 @@ const AdminAddEmployeePage = () => {
           <Link to='/admin/employees' className="text-slate-700 border border-slate-200 py-2.5 px-5 rounded-md cursor-pointer transition-all duration-300 hover:bg-slate-50">
             Cancel
           </Link>
-          <button type="submit" className="bg-linear-to-r from-[#4F39F6] to-[#615FFF] text-white py-2.5 px-5 rounded-md cursor-pointer transition-all duration-300 hover:from-[#462ff0] hover:to-[#6765f3]">
+          <button type="submit" className="bg-linear-to-r from-[#4F39F6] to-[#615FFF] text-white py-2.5 px-5 rounded-md cursor-pointer transition-all duration-300 hover:from-[#3d28de] hover:to-[#5957e4]">
             Create Employee
           </button>
         </div>

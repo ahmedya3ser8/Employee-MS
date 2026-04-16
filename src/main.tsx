@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 
-import AppRouter from './app/router';
+import AppRouter from './routes/AppRouter';
 
 import './index.css';
 
