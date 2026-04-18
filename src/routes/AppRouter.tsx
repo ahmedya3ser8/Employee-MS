@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 
 import { adminRoutes } from "@/features/admin";
 import { employeeRoutes } from '@/features/employee';
@@ -8,6 +8,10 @@ import { authRoutes, UnauthorizedPage } from "@/features/auth";
 import { useAuthStore } from '@/features/auth/store/authStore';
 
 const router = createBrowserRouter([
+  {
+    path: '',
+    element: <Navigate to='auth/login' />
+  },
   authRoutes,
   adminRoutes,
   employeeRoutes,

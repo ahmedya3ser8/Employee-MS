@@ -6,7 +6,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 interface InputProps<TFieldValue extends FieldValues> {
   id: string;
   label: string;
-  type?: "text" | "email" | "password" | "number";
+  type?: "text" | "email" | "password" | "number" | 'date' | 'tel';
   placeholder?: string;
   register: UseFormRegister<TFieldValue>;
   name: Path<TFieldValue>;
@@ -23,10 +23,7 @@ const Input = <TFieldValue extends FieldValues>({ id, label, type = 'text', plac
   return (
     <div className="space-y-2">
 
-      <label 
-        htmlFor={id} 
-        className="label"
-      > 
+      <label htmlFor={id} className="label"> 
         {label} 
       </label>
 
@@ -37,7 +34,7 @@ const Input = <TFieldValue extends FieldValues>({ id, label, type = 'text', plac
           id={id} 
           className="input" 
           placeholder={placeholder} 
-          {...register(name)}
+          {...register(name, type === 'number' ? { setValueAs: (v) => v === '' ? 0 : Number(v) } : {})}
         />
 
         {isPassword && (

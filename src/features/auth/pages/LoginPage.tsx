@@ -2,7 +2,7 @@ import type { SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
-import type { LoginFormValues } from "@/validations/auth.schema";
+import type { LoginFormValues } from "@/features/auth/validations/auth.schema";
 import LoginForm from "../components/LoginForm";
 import LoginHeader from "../components/LoginHeader";
 import { useAuthStore } from "../store/authStore";

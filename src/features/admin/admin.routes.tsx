@@ -1,11 +1,10 @@
 import { Navigate } from "react-router-dom";
 
-import { AdminLayout } from "@/layouts";
+import DashboardLayout from "@/layouts/DashboardLayout";
 import ProtectedRoute from "@/routes/ProtectedRoute";
 
-import AdminAddEmployeePage from "./pages/AdminAddEmployeePage";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
-import AdminEditEmployeePage from "./pages/AdminEditEmployeePage";
+import AdminEmployeeForm from "./pages/AdminEmployeeForm";
 import AdminEmployeesPage from "./pages/AdminEmployeesPage";
 import AdminLeavePage from "./pages/AdminLeavePage";
 import AdminPayslipsPage from "./pages/AdminPayslipsPage";
@@ -13,7 +12,7 @@ import AdminSettingsPage from "./pages/AdminSettingsPage";
 
 export const adminRoutes = {
   path: 'admin',
-  element: <ProtectedRoute allowedRoles={['admin']}> <AdminLayout /> </ProtectedRoute>,
+  element: <ProtectedRoute allowedRoles={['admin']}> <DashboardLayout /> </ProtectedRoute>,
   children: [
     {
       index: true,
@@ -29,11 +28,11 @@ export const adminRoutes = {
     },
     {
       path: 'employees/add',
-      element: <AdminAddEmployeePage />
+      element: <AdminEmployeeForm />
     },
     {
       path: 'employees/edit/:id',
-      element: <AdminEditEmployeePage />
+      element: <AdminEmployeeForm />
     },
     {
       path: 'leave',

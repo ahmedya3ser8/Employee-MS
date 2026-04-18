@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 import { Sidebar } from "@/shared";
 
-const AdminLayout = () => {
+const DashboardLayout = () => {
   return (
     <section className="flex h-screen">
       <Sidebar />
@@ -13,4 +13,4 @@ const AdminLayout = () => {
   )
 }
 
-export default AdminLayout;
+export default DashboardLayout;

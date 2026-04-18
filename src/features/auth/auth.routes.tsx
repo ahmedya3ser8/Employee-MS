@@ -1,8 +1,8 @@
-import { AuthLayout } from "@/layouts";
 import GuestRoute from "@/routes/GuestRoute";
 
 import LoginPage from "./pages/LoginPage";
 import PortalPage from "./pages/PortalPage";
+import AuthLayout from "@/layouts/AuthLayout";
 
 export const authRoutes = {
   path: 'auth',

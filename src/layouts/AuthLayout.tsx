@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-import { AuthInfo } from "@/shared";
+import { AuthInfo } from "@/features/auth";
 
 const AuthLayout = () => {
   return (

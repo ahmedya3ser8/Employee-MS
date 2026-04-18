@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 
-import { EmployeeLayout } from "@/layouts";
 import ProtectedRoute from "@/routes/ProtectedRoute";
+import DashboardLayout from "@/layouts/DashboardLayout";
 
 import EmployeeAttendancePage from "./pages/EmployeeAttendancePage";
 import EmployeeDashboardPage from './pages/EmployeeDashboardPage';
@@ -11,7 +11,7 @@ import EmployeeSettingsPage from "./pages/EmployeeSettingsPage";
 
 export const employeeRoutes = {
   path: 'employee',
-  element: <ProtectedRoute allowedRoles={['employee']}> <EmployeeLayout /> </ProtectedRoute>,
+  element: <ProtectedRoute allowedRoles={['employee']}> <DashboardLayout /> </ProtectedRoute>,
   children: [
     {
       index: true,
