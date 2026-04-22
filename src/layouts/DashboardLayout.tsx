@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-import { Sidebar } from "@/shared";
+import { Sidebar } from "@/components";
 
 const DashboardLayout = () => {
   return (

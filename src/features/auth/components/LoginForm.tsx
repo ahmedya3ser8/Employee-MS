@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { Input } from "@/shared";
+import { Input } from "@/components";
 import { loginSchema, type LoginFormValues } from '../validations/auth.schema';
 import { LuLoader } from 'react-icons/lu';
 

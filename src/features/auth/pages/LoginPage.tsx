@@ -15,17 +15,17 @@ const LoginPage = () => {
   const submitForm: SubmitHandler<LoginFormValues> = async (data) => {   
     if (loading) return;
 
-    const user = await login(data);
+    const res = await login(data);
     
-    if (user.data.role !== role) {
+    if (res.data.user.role !== role) {
       toast.error('Not allowed for this portal');
       return;
     }
 
-    toast.success(user.message);
+    toast.success(res.message);
 
     navigate(
-      user.data.role === 'admin' 
+      res.data.user.role === 'admin' 
       ? '/admin/dashboard' 
       : '/employee/dashboard'
     );

@@ -29,6 +29,12 @@ body {
   .btn-primary {
     @apply bg-linear-to-r from-[#4F39F6] to-[#615FFF] text-white p-3 rounded-md cursor-pointer transition-all duration-300 hover:from-[#3d28de] hover:to-[#5957e4]
   }
+  .btn-download {
+    @apply inline-flex items-center gap-1.5 bg-blue-50 py-1.5 px-3 rounded-sm text-[#155DFC] text-xs font-medium transition-all duration-300 hover:bg-blue-100 cursor-pointer;
+  }
+  .badge {
+    @apply bg-[#F1F5F9] py-1 px-2.5 rounded-md text-[#45556C] text-xs;
+  }
 }
 
 .loader {

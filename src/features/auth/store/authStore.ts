@@ -1,48 +1,44 @@
 import { create } from 'zustand';
 import { isAxiosError } from 'axios';
 
-import { axiosInstance } from '@/shared';
+import { axiosInstance } from '@/lib/axios'; 
 import toast from 'react-hot-toast';
+import type { IEmployee } from '@/features/employee/types/employee.types'; 
 
-interface IUser {
-  userId: string;
-  email: string;
-  role: 'admin' | 'employee';
-}
-
-interface IResponse {
+interface IAuthResponse {
   success: boolean;
   message: string;
-  data: IUser
+  data: IEmployee;
 }
 
 interface AuthState {
-  user: IUser | null;
+  employee: IEmployee | null;
   loading: boolean;
   isAuthenticated: boolean;
+  isChangePassword: boolean;
   role: 'admin' | 'employee' | null;
   initialized: boolean;
 
-  login: (formData: { email: string; password: string }) => Promise<IResponse>;
-  getMe: () => Promise<IResponse | null>;
+  login: (formData: { email: string; password: string }) => Promise<IAuthResponse>;
+  getMe: () => Promise<IAuthResponse | null>;
   logout: () => Promise<void>;
+  changePassword: (formData: { currentPassword: string; newPassword: string; }) => Promise<IAuthResponse>;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
-  user: null,
+  employee: null,
   role: null,
   loading: false,
   isAuthenticated: false,
   initialized: false,
+  isChangePassword: false,
 
   login: async (formData) => {
     try {
       set({ loading: true })
-      const { data } = await axiosInstance.post<IResponse>('/auth/login', formData);
-      console.log(data);
-      const user = data;
-      set({ user: user.data, role: user.data.role, isAuthenticated: true, loading: false });
-      return user;
+      const { data } = await axiosInstance.post<IAuthResponse>('/auth/login', formData);
+      set({ employee: data.data, role: data.data.user.role, isAuthenticated: true, loading: false });
+      return data;
     } catch (err) {
       if (isAxiosError(err)) {
         toast.error(err.response?.data.message);
@@ -55,13 +51,11 @@ export const useAuthStore = create<AuthState>((set) => ({
   getMe: async () => {
     try {
       set({ loading: true })
-      const { data } = await axiosInstance.get<IResponse>('/auth/getMe');
-      console.log(data);
-      const user = data;
-      set({ user: user.data, role: user.data.role, isAuthenticated: true, loading: false, initialized: true });
-      return user;
+      const { data } = await axiosInstance.get<IAuthResponse>('/auth/getMe');
+      set({ employee: data.data, role: data.data.user.role, isAuthenticated: true, loading: false, initialized: true });
+      return data;
     } catch {
-      set({ loading: false, isAuthenticated: false, role: null, user: null, initialized: true });
+      set({ loading: false, isAuthenticated: false, role: null, employee: null, initialized: true });
       return null;
     }
   },
@@ -69,11 +63,26 @@ export const useAuthStore = create<AuthState>((set) => ({
   logout: async () => {
     try {
       set({ loading: true })
-      const { data } = await axiosInstance.post<IResponse>('/auth/logout');
+      const { data } = await axiosInstance.post<IAuthResponse>('/auth/logout');
       console.log(data);
-      set({ user: null, role: null, isAuthenticated: false, loading: false });
+      set({ employee: null, role: null, isAuthenticated: false, loading: false });
     } catch {
-      set({ user: null, role: null, isAuthenticated: false, loading: false });
+      set({ employee: null, role: null, isAuthenticated: false, loading: false });
+    }
+  },
+
+  changePassword: async (formData) => {
+    try {
+      set({ isChangePassword: true });
+      const { data } = await axiosInstance.patch<IAuthResponse>('/auth/changePassword', formData);
+      set({ employee: data.data, isChangePassword: false });
+      return data;
+    } catch (err) {
+      if (isAxiosError(err)) {
+        toast.error(err.response?.data.errors[0].message);
+      }
+      set({ isChangePassword: false });
+      throw err;
     }
   },
 }))
