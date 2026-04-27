@@ -1,8 +1,9 @@
-import { DataTable, Loader } from "@/components";
+import { DataTable, Loader, StatusBadge } from "@/components";
 import { formatRange } from "@/utils/formateDate";
+
 import LeaveActions from "../components/LeaveActions";
 import LeaveHeader from "../components/LeaveHeader";
-import StatusBadge from "../components/StatusBadge";
+
 import useLeave from "../hooks/useLeave";
 
 const AdminLeave = () => {

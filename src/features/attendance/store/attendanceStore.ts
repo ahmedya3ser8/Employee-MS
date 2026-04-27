@@ -9,8 +9,8 @@ export interface IAttendance {
   checkIn: string;
   checkOut: string;
   workingHours: number;
-  status: string;
-  dayType: string;
+  status: 'present' | 'absent' | 'late';
+  dayType: 'full day' | 'three quarter day' | 'half day' | 'short day';
   employee: string;
 }
 

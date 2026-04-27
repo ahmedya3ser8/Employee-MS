@@ -1,6 +1,8 @@
 export { default as Sidebar } from './common/Sidebar';
 export { default as DataTable } from './common/DataTable';
 export { default as Loader } from './common/Loader';
+export { default as StatsCard } from './common/StatsCard';
+export { default as StatusBadge } from './common/StatusBadge';
 
 export { default as Button } from './ui/Button';
 export { default as Input } from './ui/Input';

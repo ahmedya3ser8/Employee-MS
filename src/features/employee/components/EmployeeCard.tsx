@@ -1,14 +1,9 @@
 import { Link } from "react-router-dom";
 
 import { LuPencil, LuTrash } from "react-icons/lu";
-import type { IEmployee } from "../types/employee.types";
+import type { EmployeeCardProps } from "../types/employee.types";
 
-type Props = {
-  handleDeleteEmployee: (employee: string) => void;
-  employee: IEmployee
-}
-
-const EmployeeCard = ({ employee, handleDeleteEmployee }: Props) => {
+const EmployeeCard = ({ employee, handleDeleteEmployee }: EmployeeCardProps) => {
   return (
     <div className="border border-[#E2E8F0B2] rounded-md overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-md">
       <div className="bg-linear-to-r from-[#F1F5F9] to-[#F8FAFC] aspect-4/3 w-full flex flex-col justify-center items-center relative">

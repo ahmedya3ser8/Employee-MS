@@ -1,13 +1,20 @@
-export type LeaveStatus = 'approved' | 'rejected' | 'pending';
+export type Status = 'approved' | 'rejected' | 'pending' | 'present' | 'absent' | 'late' | 'full day' | 'three quarter day' | 'half day' | 'short day';
 
 export type LeaveActionsProps = {
-  status: LeaveStatus;
+  status: Status;
   loadingLeaveId?: string;
   type?: string;
   id: string;
-  handleUpdateLeave: (id: string, status: LeaveStatus) => void;
+  handleUpdateLeave: (id: string, status: Status) => void;
 }
 
 export type StatusBadgeProps = {
-  status: LeaveStatus;
+  status: Status;
+}
+
+export type LeaveHeaderProps = {
+  setShowModal?: React.Dispatch<React.SetStateAction<boolean>>;
+  title: string;
+  description: string;
+  isBtn?: boolean;
 }

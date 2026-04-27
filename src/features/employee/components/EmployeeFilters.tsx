@@ -1,10 +1,5 @@
 import { LuSearch } from "react-icons/lu";
-import { DEPARTMENTS } from "../types/employee.types";
-
-type EmployeeFiltersProps = {
-  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleDepartment: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-}
+import { DEPARTMENTS, type EmployeeFiltersProps } from "../types/employee.types";
 
 const EmployeeFilters = ({ handleDepartment, handleSearch }: EmployeeFiltersProps) => {
   return (

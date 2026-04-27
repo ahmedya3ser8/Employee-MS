@@ -1,9 +1,6 @@
 import { LuLoader, LuLogIn } from "react-icons/lu";
 
-type AttendanceButtonProps = {
-  clockInOut: () => void;
-  isCreateAttendanceLoading: boolean;
-}
+import type { AttendanceButtonProps } from "../types/attendance.types";
 
 const AttendanceButton = ({ clockInOut, isCreateAttendanceLoading }: AttendanceButtonProps) => {
   return (

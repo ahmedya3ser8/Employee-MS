@@ -1,9 +1,9 @@
+import { useEmployeeStore } from "@/features/employee";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { payslipSchema, type PayslipFormValues } from "../validations/payslip.schema";
 import { usePayslipStore } from "../store/payslipStore";
-import { useEmployeeStore } from "@/features/employee/store/employeeStore"; 
-import { zodResolver } from "@hookform/resolvers/zod";
+import { payslipSchema, type PayslipFormValues } from "../validations/payslip.schema";
 
 type AddPayslipProps = {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>

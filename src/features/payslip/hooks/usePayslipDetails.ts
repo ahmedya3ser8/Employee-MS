@@ -1,4 +1,4 @@
-import { usePayslipStore } from "@/features/payslip/store/payslipStore";
+import { usePayslipStore } from "../store/payslipStore"; 
 import { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";

@@ -1,3 +1,6 @@
+import type { FieldErrors, UseFormRegister } from "react-hook-form";
+import type { EmployeeFormValues } from "../validations/employee.schema";
+
 export interface IEmployee {
   _id: string;
   firstName: string;
@@ -39,6 +42,43 @@ export interface IEmployeeResponse {
   message: string;
   data: IEmployee[];
 };
+
+export type EmployeeCardProps = {
+  handleDeleteEmployee: (employee: string) => void;
+  employee: IEmployee
+}
+
+export type EmployeeFiltersProps = {
+  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleDepartment: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+
+export type EmployeeFormActionsProps = {
+  loading: boolean;
+  isEditMode: boolean;
+}
+
+export type AccountSetupProps = {
+  register: UseFormRegister<EmployeeFormValues>;
+  errors: FieldErrors<EmployeeFormValues>;
+  isEditMode: boolean;
+}
+
+export type EmployeeDetailsProps = {
+  register: UseFormRegister<EmployeeFormValues>;
+  errors: FieldErrors<EmployeeFormValues>;
+}
+
+export type EmployeeListProps = {
+  employeeList: IEmployee[];
+  handleDeleteEmployee: (employeeId: string) => Promise<void>;
+  loading: boolean;
+}
+
+export type PersonalInfoProps = {
+  register: UseFormRegister<EmployeeFormValues>;
+  errors: FieldErrors<EmployeeFormValues>;
+}
 
 export const DEPARTMENTS = [
   'Engineering',

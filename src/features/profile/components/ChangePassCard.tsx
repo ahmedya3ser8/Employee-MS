@@ -1,10 +1,8 @@
 import { LuLock } from "react-icons/lu";
 
-type ChangePassCardProps = {
-  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import type { ChangePassProps } from "../types/profile.types";
 
-const ChangePassCard = () => {
+const ChangePassCard = ({ setShowModal }: ChangePassProps) => {
   return (
     <div className="w-full md:w-md flex items-center gap-3 border border-slate-200 rounded-md p-6">
     

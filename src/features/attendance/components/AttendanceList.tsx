@@ -1,10 +1,6 @@
-import { DataTable } from "@/components";
+import { DataTable, StatusBadge } from "@/components";
 import { formatDate, formatTime, formatWorkingHours } from "@/utils/formateDate";
-import type { IAttendance } from "../store/attendanceStore";
-
-type AttendanceListProps = {
-  attendanceList: IAttendance[]
-}
+import type { AttendanceListProps } from "../types/attendance.types";
 
 const AttendanceList = ({ attendanceList }: AttendanceListProps) => {
   return (
@@ -19,14 +15,14 @@ const AttendanceList = ({ attendanceList }: AttendanceListProps) => {
           { header: 'Check Out', render: (row) => formatTime(row.checkOut) },
           { header: 'Working Hours', render: (row) => formatWorkingHours(row.workingHours) },
           { header: 'Day Type', render: (row) => (
-            <span className="bg-[#ECFDF5] text-[#007A55] py-1 px-2.5 rounded-md shadow-sm text-xs"> 
-              {row.dayType} 
-            </span>
+            <StatusBadge 
+              status={row.dayType}
+            />
           )},
           { header: 'Status', render: (row) => (
-            <span className="bg-[#ECFDF5] text-[#007A55] py-1 px-2.5 rounded-md shadow-sm text-xs"> 
-              {row.status}
-            </span>
+            <StatusBadge 
+              status={row.status}
+            />
           )},
         ]}
         data={attendanceList}

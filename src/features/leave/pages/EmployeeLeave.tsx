@@ -1,9 +1,8 @@
 import AddLeaveModal from "../components/AddLeaveModal";
 import LeaveHeader from "../components/LeaveHeader";
 import LeaveStats from "../components/LeaveStats";
-import StatusBadge from "../components/StatusBadge";
 
-import { DataTable, Loader } from "@/components";
+import { DataTable, Loader, StatusBadge } from "@/components";
 import { formatRange } from "@/utils/formateDate";
 
 import useLeave from "../hooks/useLeave";

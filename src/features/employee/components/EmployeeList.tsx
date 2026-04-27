@@ -1,11 +1,5 @@
-import type { IEmployee } from "../types/employee.types";
+import type { EmployeeListProps } from "../types/employee.types";
 import EmployeeCard from "./EmployeeCard";
-
-type EmployeeListProps = {
-  employeeList: IEmployee[];
-  handleDeleteEmployee: (employeeId: string) => Promise<void>;
-  loading: boolean;
-}
 
 const EmployeeList = ({ employeeList, handleDeleteEmployee, loading }: EmployeeListProps) => {
   if (loading) {

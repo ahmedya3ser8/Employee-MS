@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { usePayslipStore } from "../store/payslipStore";
-import { useAuthStore } from "@/features/auth/store/authStore";
+import { useAuthStore } from "@/features/auth";
 
 const usePayslip = () => {
   const { getPayslips, getMyPayslips, isPayslipLoading, adminPayslipList, employeePayslipList } = usePayslipStore();

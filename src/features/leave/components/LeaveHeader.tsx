@@ -1,11 +1,6 @@
 import { LuPlus } from "react-icons/lu";
 
-type LeaveHeaderProps = {
-  setShowModal?: React.Dispatch<React.SetStateAction<boolean>>;
-  title: string;
-  description: string;
-  isBtn?: boolean;
-}
+import type { LeaveHeaderProps } from "../types/leave.types";
 
 const LeaveHeader = ({ setShowModal, description, title, isBtn = false }: LeaveHeaderProps) => {
   return (

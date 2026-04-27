@@ -5,3 +5,4 @@ export { default as UnauthorizedPage } from './pages/UnauthorizedPage';
 export { default as AuthInfo } from './components/AuthInfo';
 
 export * from './auth.routes';
+export * from './store/authStore';
